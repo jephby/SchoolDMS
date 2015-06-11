@@ -1,0 +1,12 @@
+{
+    "name": "jephthah/advanced",
+    "description": "my sms project",
+    "authors": [
+        {
+            "name": "jephby",
+            "email": "jephby@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
