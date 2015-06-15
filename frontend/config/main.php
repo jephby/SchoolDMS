@@ -15,6 +15,9 @@ return [
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+            'identityCookie' => [
+                'name' => '_frontendUser', // unique for frontend
+                ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -24,6 +27,15 @@ return [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'session' => [
+            'name' => 'PHPFRONTSESSID',
+            'savePath' => sys_get_temp_dir(),
+        ],
+        'request' => [
+            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'cookieValidationKey' => '[REAL RANDOM KEY]',
+            'csrfParam' => '_frontendCSRF',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
