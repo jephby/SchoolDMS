@@ -14,20 +14,11 @@ return [
     'modules' => [],
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\Admin',
             'enableAutoLogin' => true,
             'identityCookie' => [
-                'name' => '_backendUser', // unique for frontend
-            ],
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
+                'name' => '_backendUser', // unique for backend
+            ]
         ],
         'session' => [
             'name' => 'PHPBACKSESSID',
@@ -38,6 +29,16 @@ return [
             'cookieValidationKey' => '[DIFFERENT UNIQUE KEY]',
             'csrfParam' => '_backendCSRF',
         ],
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+            ],
+        ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

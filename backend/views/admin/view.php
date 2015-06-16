@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\bootstrap\nav;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Admin */
@@ -13,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="admin-view">
     <div class="container">
 
-    <div class="col-md-3">
+    <div class="col-md-4">
 
         <!--Sidebar content-->
         <?php
@@ -33,8 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]);
         ?>
-        </div>
-
     <div class="col-md-9">
     <h1><?= Html::encode($this->title) ?></h1>
 

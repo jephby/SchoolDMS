@@ -60,7 +60,6 @@ AppAsset::register($this);
                         <?= $content ?>
                 </div>
             </div>
-            </div>
         </div>
     </div>
 
