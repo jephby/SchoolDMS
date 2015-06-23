@@ -12,29 +12,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Admins', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="admin-view">
-    <div class="container">
-
-    <div class="col-md-4">
-
-        <!--Sidebar content-->
-        <?php
-        echo Nav::widget([
-
-            'items' => [
-                [
-                    'url' => ['/site/index'],
-                    'label' => 'Home',
-                    'icon' => 'home'
-                ],
-                [
-                    'url' => ['/admin/index'],
-                    'label' => 'Admin',
-                    'icon' => 'book'
-                ],
-            ],
-        ]);
-        ?>
-    <div class="col-md-9">
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
@@ -47,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
+    <div class="container-fluid">
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -62,6 +39,5 @@ $this->params['breadcrumbs'][] = $this->title;
             //'updated_at',
         ],
     ]) ?>
-        </div>
     </div>
-</div>
+    </div>

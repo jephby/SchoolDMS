@@ -34,7 +34,7 @@ class Courses extends \yii\db\ActiveRecord
             [['course_ID', 'course_name', 'credit_hours', 'level', 'dept_ID'], 'required'],
             [['credit_hours', 'level', 'dept_ID'], 'integer'],
             [['course_ID'], 'string', 'max' => 10],
-            [['course_name'], 'string', 'max' => 45]
+            [['course_name'], 'string', 'max' => 50]
         ];
     }
 

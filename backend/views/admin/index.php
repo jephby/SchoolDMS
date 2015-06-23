@@ -18,25 +18,23 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Admin', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-
+    <div class="col-md-10 wrap">
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'username',
-            'auth_key',
             'password_hash',
-            'password_reset_token',
-            // 'email:email',
-            // 'status',
+            'email:email',
+            'status',
             // 'created_at',
             // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    </div>
 
 </div>

@@ -1,9 +1,15 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Jephthah
+ * Date: 6/16/2015
+ * Time: 11:01 AM
+ */
+use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -16,6 +22,7 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -50,12 +57,36 @@ AppAsset::register($this);
     NavBar::end();
     ?>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
 
-        <?= $content ?>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="nav-tabs">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li role="presentation" class="active"><a href="#">Dashboard</a></li>
+                        <li role="presentation"><a href="#">STUDENTS</a></li>
+                        <li role="presentation"><a href="#">DEPARTMENTS</a></li>
+                        <li role="presentation"><a href="#">FACULTY</a></li>
+                        <li role="presentation"><a href="#">COURSES</a></li>
+                        <li role="presentation"><a href="#">Messages</a></li>
+                    </ul>
+                <?php
+
+                ?>
+                    </div>
+
+                </div>
+
+            <div class="col-md-10">
+                <?= Breadcrumbs::widget([
+                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                ]) ?>
+                <?= $content ?>
+            </div>
+
+
+
+        </div>
     </div>
 </div>
 
@@ -70,4 +101,3 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
-
