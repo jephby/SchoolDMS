@@ -1,5 +1,5 @@
 <?php
-namespace frontend\models;
+namespace backend\models;
 
 use common\models\User;
 use yii\base\Model;
@@ -37,14 +37,6 @@ class SignupForm extends Model
         ];
     }
 
-    /**
-     *
-     */
-    public function generateMatriculationNumber(){
-        if isset($this->userdept_ID && $this->Year_A ){
-
-        }
-    }
 
     /**
      * Signs user up.

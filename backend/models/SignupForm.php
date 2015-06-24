@@ -1,5 +1,5 @@
 <?php
-namespace frontend\models;
+namespace backend\models;
 
 use common\models\User;
 use yii\base\Model;
@@ -14,6 +14,8 @@ class SignupForm extends Model
     public $email;
     public $password;
     public $userdept_ID;
+    public $Year_A;
+    public $matricNO;
 
     /**
      * @inheritdoc
@@ -34,17 +36,15 @@ class SignupForm extends Model
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 
+            ['userdept_ID', 'required'],
+            ['userdept_ID', 'string', 'max' => 10],
+
+            ['Year_A', 'required'],
+            ['Year_A', 'string', 'max' => 10]
+
         ];
     }
 
-    /**
-     *
-     */
-    public function generateMatriculationNumber(){
-        if isset($this->userdept_ID && $this->Year_A ){
-
-        }
-    }
 
     /**
      * Signs user up.
@@ -58,8 +58,10 @@ class SignupForm extends Model
             $user->username = $this->username;
             $user->email = $this->email;
             $user->setPassword($this->password);
-            $user->userdept_ID - $this->userdept_ID;
+            $user->userdept_ID = $this->userdept_ID;
+            $user->Year_A = $this->Year_A;
             $user->generateAuthKey();
+            $user-> matricNO = User::generateMatricNumber();
             if ($user->save()) {
                 return $user;
             }

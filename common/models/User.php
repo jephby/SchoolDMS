@@ -20,6 +20,10 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property string $userdept_ID
+ * @property string $Year_A
+ * @property User &matricNO
+ *
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -31,7 +35,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
-        return '{{%user}}';
+        return '{{%user,faculty}}';
     }
 
     /**
@@ -162,6 +166,8 @@ class User extends ActiveRecord implements IdentityInterface
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
     }
 
+
+
     /**
      * Generates "remember me" authentication key
      */
@@ -185,4 +191,22 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+    /**
+     * @param array $arr
+     * @param $userdep_ID
+     * @param $Year_A
+     * @return array
+     */
+    public function generateMatricNumber($userdep_ID, $Year_A  ){
+            $arr = array();
+            $this->userdept_ID = $userdep_ID;
+            $this->Year_A = $Year_A;
+        if ($arr = userdept_ID + Year_A ){
+            return  $arr;
+        }
+
+
+    }
+
 }

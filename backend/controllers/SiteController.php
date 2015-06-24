@@ -5,6 +5,7 @@ use common\models\Admin;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use backend\models\SignupForm;
 use common\models\AdminLoginForm;
 use yii\filters\VerbFilter;
 
@@ -27,6 +28,13 @@ class SiteController extends Controller
                         'actions' => ['login', 'error'],
                         'allow' => true,
                     ],
+
+                    [
+                    'actions' => ['signup'],
+                    'allow' => true,
+                    'roles' => ['?'],
+                ],
+
                     [
                         'actions' => ['logout', 'index'],
                         'allow' => true,
@@ -59,6 +67,24 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+
+
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+
+                    return $this->goHome();
+
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
+    }
+
 
     /**
      * @return string|\yii\web\Response
